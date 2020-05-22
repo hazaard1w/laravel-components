@@ -27,7 +27,7 @@ class CreatorService {
         $name = ucwords($name);
         $componentDirectory = $this->_getComponentsDirectory($path)."\\{$name}";
         $this->_createComponentDirectory($componentDirectory);
-        $this->_createEmptyFacade($componentDirectory);
+        $this->_createEmptyFacade($componentDirectory, $name);
     }
 
     private function _getComponentsDirectory(string $path): string {
@@ -48,12 +48,14 @@ class CreatorService {
         }
     }
 
-    private function _createEmptyFacade(string $componentDirectory): void {
+    private function _createEmptyFacade(string $componentDirectory, string $componentName): void {
         $facadeFilePath = $componentDirectory.'\\Facade.php';
         if (file_exists($facadeFilePath)) {
             return;
         }
-        $emptyFacadeSource = $this->_stubComponent->getEmptyFacadeSource();
+        $emptyFacadeSource = $this->_stubComponent->getEmptyFacadeSource([
+            'DummyComponentName' => $componentName
+        ]);
         file_put_contents($facadeFilePath, $emptyFacadeSource);
     }
 }

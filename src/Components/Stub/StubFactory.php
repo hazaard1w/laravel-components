@@ -7,7 +7,10 @@
 namespace Kondratyev\LaravelComponents\Components\Stub;
 
 class StubFactory {
-    public function getEmptyFacadeSource(): string {
-        return file_get_contents(__DIR__."/Stubs/empty-facade.stub");
+    public function getEmptyFacadeSource(array $variablesData): string {
+        $stubContent = file_get_contents(__DIR__."/Stubs/empty-facade.php");
+        $variables = array_keys($variablesData);
+        $variableValues = array_values($variablesData);
+        return str_replace($variables, $variableValues, $stubContent);
     }
 }
