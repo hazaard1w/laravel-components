@@ -6,11 +6,15 @@
 
 namespace Kondratyev\LaravelComponents\Components\Stub;
 
+use Kondratyev\LaravelComponents\Components\Reflection;
+
 class StubFactory {
-    public function getEmptyFacadeSource(array $variablesData): string {
+
+    public function getEmptyFacadeSource(array $variablesData): Reflection\Dto\Source {
         $stubContent = file_get_contents(__DIR__."/Stubs/empty-facade.php");
         $variables = array_keys($variablesData);
         $variableValues = array_values($variablesData);
-        return str_replace($variables, $variableValues, $stubContent);
+        $sourceRaw = str_replace($variables, $variableValues, $stubContent);
+        return new Reflection\Dto\Source($sourceRaw);
     }
 }

@@ -6,6 +6,8 @@
 
 namespace Kondratyev\LaravelComponents\Components\Stub;
 
+use Kondratyev\LaravelComponents\Components\Reflection;
+
 class Facade {
 
     /**
@@ -23,9 +25,9 @@ class Facade {
 
     /**
      * @param string[] $variablesData
-     * @return string
+     * @return Reflection\Dto\Source
      */
-    public function getEmptyFacadeSource(array $variablesData): string {
+    public function getEmptyFacadeSource(array $variablesData): Reflection\Dto\Source {
         return $this->_stubFactory->getEmptyFacadeSource($variablesData);
     }
 }
