@@ -8,6 +8,6 @@ namespace Kondratyev\LaravelComponents\Components\Stub;
 
 class StubFactory {
     public function getEmptyFacadeSource(): string {
-        return file_get_contents("Stubs/empty-facade.stub");
+        return file_get_contents(__DIR__."/Stubs/empty-facade.stub");
     }
 }

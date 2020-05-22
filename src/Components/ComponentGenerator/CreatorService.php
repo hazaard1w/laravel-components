@@ -6,8 +6,6 @@
 
 namespace Kondratyev\LaravelComponents\Components\ComponentGenerator;
 
-use Kondratyev\LaravelComponents\Components\ComponentGenerator\Exception\ComponentAlreadyExists;
-use Kondratyev\LaravelComponents\Components\ComponentGenerator\Exception\FacadeAlreadyExists;
 use \Kondratyev\LaravelComponents\Components;
 
 class CreatorService {
@@ -27,15 +25,23 @@ class CreatorService {
 
     public function createComponent(string $name, string $path): void {
         $name = ucwords($name);
-        $componentDirectory = "{$path}\\{$name}";
-
+        $componentDirectory = $this->_getComponentsDirectory($path)."\\{$name}";
         $this->_createComponentDirectory($componentDirectory);
         $this->_createEmptyFacade($componentDirectory);
     }
 
+    private function _getComponentsDirectory(string $path): string {
+        $componentsDirectory = "{$path}\\Components";
+        if (file_exists($componentsDirectory)) {
+            return $componentsDirectory;
+        }
+        mkdir($componentsDirectory);
+        return $componentsDirectory;
+    }
+
     private function _createComponentDirectory(string $componentDirectory): void {
         if (file_exists($componentDirectory)) {
-            throw new ComponentAlreadyExists("Component already exists: {$componentDirectory}");
+            return;
         }
         if (!mkdir($componentDirectory) && !is_dir($componentDirectory)) {
             throw new \RuntimeException(sprintf('Directory "%s" was not created', $componentDirectory));
@@ -45,7 +51,7 @@ class CreatorService {
     private function _createEmptyFacade(string $componentDirectory): void {
         $facadeFilePath = $componentDirectory.'\\Facade.php';
         if (file_exists($facadeFilePath)) {
-            throw new FacadeAlreadyExists("Facade already exists: {$facadeFilePath}");
+            return;
         }
         $emptyFacadeSource = $this->_stubComponent->getEmptyFacadeSource();
         file_put_contents($facadeFilePath, $emptyFacadeSource);
