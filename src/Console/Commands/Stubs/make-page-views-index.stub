@@ -1,0 +1,27 @@
+@extends('backend.layouts.app')
+
+@section('title', app_name() . ' | ' . __('backend_DummyLabel.labels.management'))
+
+@section('breadcrumb-links')
+    @include('backend.DummyView.includes.breadcrumb-links')
+@endsection
+
+@section('content')
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="card-title mb-0">
+                    {{ __('backend_DummyLabel.labels.management') }} <small class="text-muted">{{ __('backend_DummyLabel.labels.active') }}</small>
+                </h4>
+            </div><!--col-->
+        </div><!--row-->
+
+        <div class="row mt-4">
+            <div class="col">
+                todo: content
+            </div><!--col-->
+        </div><!--row-->
+    </div><!--card-body-->
+</div><!--card-->
+@endsection

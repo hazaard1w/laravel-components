@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Http\Controllers\Backend;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Exceptions\GeneralException;
+
+use App\Http\Requests\Backend\DummyModel\ManageDummyRequest;
+
+class DummyController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @param ManageDummyRequest $request
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index(ManageDummyRequest $request)
+    {
+        return view('backend.DummyView.index');
+    }
+}

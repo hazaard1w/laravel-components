@@ -1,0 +1,61 @@
+@extends('frontend.layouts.app')
+
+@section('title', app_name() . ' | ' . __('frontend_DummyLabel.frontend.labels.management'))
+
+@section('content')
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-5">
+                <h4 class="card-title mb-0">
+                    {{ __('frontend_DummyLabel.labels.management') }} <small class="text-muted">{{ __('frontend_DummyLabel.labels.active') }}</small>
+                </h4>
+            </div><!--col-->
+
+            <div class="col-sm-7">
+                @include('frontend.DummyView.includes.header-buttons')
+            </div><!--col-->
+        </div><!--row-->
+
+        <div class="row mt-4">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>@lang('frontend_DummyLabel.table.DummyField')</th>
+                            <th>@lang('frontend_DummyLabel.table.created')</th>
+                            <th>@lang('frontend_DummyLabel.table.last_updated')</th>
+                            <th>@lang('frontend_DummyLabel.table.actions')</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($DummyArray as $DummyVariable)
+                            <tr>
+                                <td class="align-middle"><a href="/DummyRoute/{{ $DummyVariable->id }}">{{ $DummyVariable->DummyField }}</a></td>
+                                <td class="align-middle">{!! $DummyVariable->created_at !!}</td>
+                                <td class="align-middle">{{ $DummyVariable->updated_at->diffForHumans() }}</td>
+                                <td class="align-middle">{!! $DummyVariable->frontend_action_buttons !!}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div><!--col-->
+        </div><!--row-->
+        <div class="row">
+            <div class="col-7">
+                <div class="float-left">
+                    {!! $DummyArray->count() !!} {{ trans_choice('frontend_DummyLabel.table.total', $DummyArray->count()) }}
+                </div>
+            </div><!--col-->
+
+            <div class="col-5">
+                <div class="float-right">
+                    {!! $DummyArray->links() !!}
+                </div>
+            </div><!--col-->
+        </div><!--row-->
+    </div><!--card-body-->
+</div><!--card-->
+@endsection

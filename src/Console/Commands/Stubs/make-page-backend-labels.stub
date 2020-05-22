@@ -1,0 +1,15 @@
+<?php
+
+return [
+    'labels'    => [
+        'management'    => 'Management of DummyModel'
+    ],
+
+    'sidebar' => [
+        'title'  => 'DummyModel',
+    ],
+
+    'menus' => [
+      'all' => 'All'
+    ]
+];

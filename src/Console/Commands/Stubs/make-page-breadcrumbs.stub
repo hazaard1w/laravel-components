@@ -1,0 +1,6 @@
+<?php
+
+Breadcrumbs::for('admin.DummyRoute.index', function ($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push(__('backend_DummyRoute.labels.management'), route('admin.DummyRoute.index'));
+});

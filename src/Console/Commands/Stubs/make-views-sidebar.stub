@@ -1,0 +1,5 @@
+<li class="nav-item">
+    <a class="nav-link {{ active_class(Route::is('admin/DummyRoute*')) }}" href="{{ route('admin.DummyRoute.index') }}">
+        <i class="nav-icon fas fa-list"></i> @lang('backend_DummyLabel.sidebar.name')
+    </a>
+</li>

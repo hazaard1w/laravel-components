@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Events\Frontend\DummyModel;
+
+use Illuminate\Queue\SerializesModels;
+
+/**
+ * Class DummyEventCreated.
+ */
+class DummyEventCreated
+{
+    use SerializesModels;
+
+    /**
+     * @var
+     */
+    public $DummyTable;
+
+    /**
+     * @param $DummyTable
+     */
+    public function __construct($DummyTable)
+    {
+        $this->DummyTable = $DummyTable;
+    }
+}

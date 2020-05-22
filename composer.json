@@ -1,0 +1,30 @@
+{
+  "name": "kondratyev/laravel-components",
+  "description": "Laravel Component Generators",
+  "license": "MIT",
+  "homepage": "https://github.com/hwnd32/laravel-components",
+  "authors": [
+    {
+      "name": "Kondratyev V.",
+      "email": "hwnd32@yandex.ru",
+      "homepage": "https://github.com/hwnd32"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^7.2",
+    "laravel/framework": "^6.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kondratyev\\LaravelComponents\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Kondratyev\\LaravelComponents\\GeneratorsServiceProvider"
+      ]
+    }
+  }
+}
