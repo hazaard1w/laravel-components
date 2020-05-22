@@ -9,19 +9,19 @@ namespace Kondratyev\LaravelComponents\Components\ComponentGenerator;
 class Facade {
 
     /**
-     * @var CreatorService
+     * @var ComponentCreator
      */
-    private $_creatorService;
+    private $_componentCreator;
 
     /**
      * Facade constructor.
-     * @param CreatorService $creatorService
+     * @param ComponentCreator $componentCreator
      */
-    public function __construct(CreatorService $creatorService) {
-        $this->_creatorService = $creatorService;
+    public function __construct(ComponentCreator $componentCreator) {
+        $this->_componentCreator = $componentCreator;
     }
 
     public function createComponent(string $name, string $path): void {
-        $this->_creatorService->createComponent($name, $path);
+        $this->_componentCreator->createComponent($name, $path);
     }
 }

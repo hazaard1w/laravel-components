@@ -9,7 +9,7 @@ namespace Kondratyev\LaravelComponents\Components\ComponentGenerator;
 use PhpParser;
 use \Kondratyev\LaravelComponents\Components;
 
-class CreatorService {
+class ComponentCreator {
 
     /**
      * @var Components\Stub\Facade
