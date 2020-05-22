@@ -32,9 +32,14 @@ class ReflectionService {
     }
 
     public function addArgumentToConstructor(Components\Reflection\Dto\Source $source, string $argumentType, string $argumentName): void {
+        $this->_traverseSource($source, new Components\Reflection\Visitors\AddClassProperty($argumentType, $argumentName));
+        $this->_traverseSource($source, new Components\Reflection\Visitors\AddConstructorArgument($argumentType, $argumentName));
+    }
+
+    private function _traverseSource(Components\Reflection\Dto\Source $source, PhpParser\NodeVisitorAbstract $nodeVisitorAbstract): void {
         $ast = $this->_getAst($source);
         $traverser = new PhpParser\NodeTraverser();
-        $traverser->addVisitor(new Components\Reflection\Visitors\AddConstructorArgument($argumentType, $argumentName));
+        $traverser->addVisitor($nodeVisitorAbstract);
         $ast = $traverser->traverse($ast);
         $source->setSource($this->_prettyPrinter->prettyPrintFile($ast));
     }

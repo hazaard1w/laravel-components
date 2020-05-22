@@ -8,7 +8,8 @@ namespace Kondratyev\LaravelComponents\Components\Reflection\Visitors;
 
 use PhpParser;
 
-class AddConstructorArgument extends NodeVisitor {
+class AddClassProperty extends NodeVisitor {
+
     /**
      * @var string
      */
@@ -25,12 +26,11 @@ class AddConstructorArgument extends NodeVisitor {
     }
 
     public function enterNode(PhpParser\Node $node) {
-        if ($node instanceof PhpParser\Node\Stmt\ClassMethod) {
-            $variable = new PhpParser\Node\Expr\Variable($this->_name);
-            $node->params[] = new PhpParser\Node\Param($variable, null, $this->_type);
-
-            $assignVariable = $this->_builderFactory()->var('this->_'.$this->_name.' = $'.$this->_name.';');
-            $node->stmts[] = $assignVariable;
+        if ($node instanceof PhpParser\Node\Stmt\Class_) {
+            $property = $this->_builderFactory()->property('_'.$this->_name);
+            $property->makePrivate();
+            $property->setDocComment("/**\n* @var {$this->_type}\n*/\n");
+            array_unshift( $node->stmts, $property->getNode());
         }
     }
 }
