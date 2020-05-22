@@ -3,6 +3,7 @@
 namespace Kondratyev\LaravelComponents;
 
 use Illuminate\Support\ServiceProvider;
+use Kondratyev\LaravelComponents\Console;
 
 class GeneratorsServiceProvider extends ServiceProvider {
     /**
@@ -10,9 +11,7 @@ class GeneratorsServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot() {
-        $this->commands('pqrs\L5BCrud\Console\Commands\L5BCrud');
-        $this->commands('pqrs\L5BCrud\Console\Commands\L5BStub');
-        $this->commands('pqrs\L5BCrud\Console\Commands\L5BPage');
+        $this->commands(Console\Commands\ComponentGenerate::class);
     }
 
     /**
