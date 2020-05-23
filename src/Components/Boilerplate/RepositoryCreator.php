@@ -6,18 +6,18 @@
 
 namespace Kondratyev\LaravelComponents\Components\Boilerplate;
 
+use Kondratyev\LaravelComponents\Helpers;
+
 class RepositoryCreator extends BaseCreator {
 
     public function createRepository(string $modelName, string $appPath): void {
         $repositoriesDirectory = $this->_getRepositoriesDirectory($appPath);
-        $variableName = strtolower(snake_case(str_singular($modelName)));
-        $repositoryName = ucfirst(camel_case($modelName))."Repository";
-        $repositorySource = $this->_stubComponent->getSourceByStubName('repository.php', [
-            'name'       => $variableName,
-            'namespace'  => '\Repositories',
-            'DummyModel'      => ucfirst(camel_case($modelName)),
+        $variableName = Helpers\Str::camelCase($modelName);//Helpers\Str::strSingular($modelName));
+        $repositoryName = ucfirst(Helpers\Str::camelCase($modelName))."Repository";
+        $repositorySource = $this->_stubComponent->getSourceByStubName('boilerplate/backend/repository.php', [
+            'DummyModel'      => ucfirst(Helpers\Str::camelCase($modelName)),
             'DummyRepository' => $repositoryName,
-            '$DummyVariable'   => $modelName,
+            '$DummyVariable'   => '$'.$variableName,
         ]);
         $repositoryFilePath = $repositoriesDirectory.'/'.$repositoryName.'.php';
         file_put_contents($repositoryFilePath, $repositorySource->getSource());

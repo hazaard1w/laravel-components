@@ -49,7 +49,7 @@ class DummyRepository extends Repositories\BaseRepository {
      * @param Models\DummyModel $DummyVariable
      * @param array             $data
      * @return Models\DummyModel
-     * @throws GeneralException
+     * @throws Exceptions\GeneralException
      * @throws \Exception
      * @throws \Throwable
      */
@@ -69,20 +69,20 @@ class DummyRepository extends Repositories\BaseRepository {
     /**
      * @param Models\DummyModel $DummyVariable
      * @return Models\DummyModel
-     * @throws GeneralException
+     * @throws Exceptions\GeneralException
      * @throws \Exception
      * @throws \Throwable
      */
     public function forceDelete(Models\DummyModel $DummyVariable): Models\DummyModel {
         if (is_null($DummyVariable->deleted_at)) {
-            throw new GeneralException(__('backend_DummyLabel.exceptions.delete_first'));
+            throw new Exceptions\GeneralException(__('backend_DummyLabel.exceptions.delete_first'));
         }
         return DB::transaction(function () use ($DummyVariable) {
             if ($DummyVariable->forceDelete()) {
                 return $DummyVariable;
             }
 
-            throw new GeneralException(__('backend_DummyLabel.exceptions.delete_error'));
+            throw new Exceptions\GeneralException(__('backend_DummyLabel.exceptions.delete_error'));
         });
     }
 
@@ -90,15 +90,15 @@ class DummyRepository extends Repositories\BaseRepository {
      * Restore the specified soft deleted resource.
      * @param Models\DummyModel $DummyVariable
      * @return Models\DummyModel
-     * @throws GeneralException
+     * @throws Exceptions\GeneralException
      */
     public function restore(Models\DummyModel $DummyVariable): Models\DummyModel {
         if (is_null($DummyVariable->deleted_at)) {
-            throw new GeneralException(__('backend_DummyLabel.exceptions.cant_restore'));
+            throw new Exceptions\GeneralException(__('backend_DummyLabel.exceptions.cant_restore'));
         }
         if ($DummyVariable->restore()) {
             return $DummyVariable;
         }
-        throw new GeneralException(__('backend_DummyLabel.exceptions.restore_error'));
+        throw new Exceptions\GeneralException(__('backend_DummyLabel.exceptions.restore_error'));
     }
 }
