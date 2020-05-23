@@ -12,6 +12,8 @@ class GeneratorsServiceProvider extends ServiceProvider {
      */
     public function boot() {
         $this->commands(Console\Commands\ComponentGenerate::class);
+        $this->commands(Console\Commands\BoilerplateModel::class);
+        $this->commands(Console\Commands\BoilerplateRepository::class);
     }
 
     /**

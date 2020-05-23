@@ -9,9 +9,8 @@ namespace Kondratyev\LaravelComponents\Components\Stub;
 use Kondratyev\LaravelComponents\Components\Reflection;
 
 class StubFactory {
-
-    public function getEmptyFacadeSource(array $variablesData): Reflection\Dto\Source {
-        $stubContent = file_get_contents(__DIR__."/Stubs/empty-facade.php");
+    public function getSourceByStubName(string $stubName, array $variablesData): Reflection\Dto\Source {
+        $stubContent = file_get_contents(__DIR__."/Stubs/{$stubName}");
         $variables = array_keys($variablesData);
         $variableValues = array_values($variablesData);
         $sourceRaw = str_replace($variables, $variableValues, $stubContent);

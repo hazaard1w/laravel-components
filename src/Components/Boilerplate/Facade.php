@@ -7,7 +7,21 @@
 namespace Kondratyev\LaravelComponents\Components\Boilerplate;
 
 class Facade {
-    public function createRepository(string $modelName): void {
 
+    /**
+     * @var RepositoryCreator
+     */
+    private $_repositoryCreator;
+
+    /**
+     * Facade constructor.
+     * @param RepositoryCreator $repositoryCreator
+     */
+    public function __construct(RepositoryCreator $repositoryCreator) {
+        $this->_repositoryCreator = $repositoryCreator;
+    }
+
+    public function createRepository(string $modelName, string $repositoryDirectory): void {
+        $this->_repositoryCreator->createRepository($modelName, $repositoryDirectory);
     }
 }

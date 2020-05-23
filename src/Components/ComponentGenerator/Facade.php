@@ -21,7 +21,7 @@ class Facade {
         $this->_componentCreator = $componentCreator;
     }
 
-    public function createComponent(string $name, string $path): void {
-        $this->_componentCreator->createComponent($name, $path);
+    public function createComponent(string $name, string $appPath): void {
+        $this->_componentCreator->createComponent($name, $appPath);
     }
 }

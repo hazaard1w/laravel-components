@@ -23,11 +23,7 @@ class Facade {
         $this->_stubFactory = $stubFactory;
     }
 
-    /**
-     * @param string[] $variablesData
-     * @return Reflection\Dto\Source
-     */
-    public function getEmptyFacadeSource(array $variablesData): Reflection\Dto\Source {
-        return $this->_stubFactory->getEmptyFacadeSource($variablesData);
+    public function getSourceByStubName(string $stubName, array $variablesData): Reflection\Dto\Source {
+        return $this->_stubFactory->getSourceByStubName($stubName, $variablesData);
     }
 }

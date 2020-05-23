@@ -25,8 +25,8 @@ class ComponentGenerate extends Command {
 
     public function handle() {
         $componentName = $this->argument('name');
-        $componentPath = $this->laravel['path'];
-        $this->_componentGenerator->createComponent($componentName, $componentPath);
+        $appPath = $this->laravel['path'];
+        $this->_componentGenerator->createComponent($componentName, $appPath);
     }
 
     /**
