@@ -12,7 +12,7 @@ class RepositoryCreator extends BaseCreator {
 
     public function createRepository(string $modelName, string $appPath): void {
         $repositoriesDirectory = $this->_getRepositoriesDirectory($appPath);
-        $variableName = Helpers\Str::camelCase($modelName);//Helpers\Str::strSingular($modelName));
+        $variableName = Helpers\Str::camelCase($modelName);
         $repositoryName = ucfirst(Helpers\Str::camelCase($modelName))."Repository";
         $repositorySource = $this->_stubComponent->getSourceByStubName('boilerplate/backend/repository.php', [
             'DummyModel'      => ucfirst(Helpers\Str::camelCase($modelName)),

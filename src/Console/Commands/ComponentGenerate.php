@@ -11,7 +11,7 @@ use Symfony\Component\Console\Input\InputOption;
 
 class ComponentGenerate extends Command {
 
-    protected $signature = 'component:generate {name}';
+    protected $signature = 'component:create {name}';
 
     /**
      * @var Components\ComponentGenerator\Facade

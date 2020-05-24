@@ -67,7 +67,6 @@ class ComponentCreator {
             'DummyComponentName' => $componentName
         ]);
 
-        $this->_reflectionComponent->addArgumentToConstructor($emptyFacadeSource, 'string', 'content');
         file_put_contents($facadeFilePath, $emptyFacadeSource->getSource());
     }
 
