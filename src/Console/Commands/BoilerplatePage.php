@@ -65,7 +65,7 @@ class BoilerplatePage extends Command {
             'view'               => $key
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Controller '.$stubParams['name'].Artisan::output());
     }
 
@@ -77,7 +77,7 @@ class BoilerplatePage extends Command {
             'model'     => ucfirst(camel_case($key))
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Request '.$stubParams['name'].Artisan::output());
     }
 
@@ -92,7 +92,7 @@ class BoilerplatePage extends Command {
             'variable'   => $key
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Routes '.$stubParams['name'].Artisan::output());
     }
 
@@ -104,7 +104,7 @@ class BoilerplatePage extends Command {
             'route'     => str_plural($key)
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Breadcrumbs '.$stubParams['name'].Artisan::output());
 
         // Include breadcrumb file in backend.php
@@ -131,7 +131,7 @@ class BoilerplatePage extends Command {
             'view'      => $key,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('View '.$stubParams['name'].Artisan::output());
     }
 
@@ -148,7 +148,7 @@ class BoilerplatePage extends Command {
             'model'     => ucfirst(camel_case($key)),
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Label '.$stubParams['name'].Artisan::output());
     }
 

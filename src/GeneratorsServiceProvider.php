@@ -16,6 +16,7 @@ class GeneratorsServiceProvider extends ServiceProvider {
         $this->commands(Console\Commands\BoilerplateRepository::class);
         $this->commands(Console\Commands\BoilerplateCrud::class);
         $this->commands(Console\Commands\BoilerplatePage::class);
+        $this->commands(Console\Commands\BoilerplateStub::class);
     }
 
     /**

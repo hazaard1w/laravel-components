@@ -10,6 +10,7 @@ use Illuminate\Console\Command;
 use Kondratyev\LaravelComponents\Components;
 
 class BoilerplateCrud extends Command {
+
     protected $signature = 'boilerplate:crud {modelName}';
 
     /**

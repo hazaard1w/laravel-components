@@ -6,18 +6,19 @@ use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class L5BStub extends GeneratorCommand {
+class BoilerplateStub extends GeneratorCommand {
+
     /**
      * The name and signature of the console command.
      * @var string
      */
-    protected $name = 'l5b:stub';
+    protected $name = 'boilerplate:stub';
 
     /**
      * The console command description.
      * @var string
      */
-    protected $description = 'Don\'t use this command. Run l5b:crud {name} instead';
+    protected $description = 'Don\'t use this command. Run boilerplate:crud {name} instead';
 
     /**
      * The type of class being generated.
