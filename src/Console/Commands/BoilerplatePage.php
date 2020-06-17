@@ -55,7 +55,6 @@ class BoilerplatePage extends Command {
             'namespace'          => '\Http\Controllers\Backend',
             'array'              => camel_case(str_plural($key)),
             'controller'         => ucfirst(camel_case($key))."Controller",
-            'field'              => $this->option('field'),
             'label'              => str_plural($key),
             'model'              => ucfirst(camel_case($key)),
             'repository'         => ucfirst(camel_case($key))."Repository",
@@ -63,8 +62,7 @@ class BoilerplatePage extends Command {
             'request'            => ucfirst(camel_case($key))."Request",
             'route'              => str_plural($key),
             'variable'           => camel_case($key),
-            'view'               => $key,
-            '--force'            => $this->hasOption('force') ? $this->option('force') : false,
+            'view'               => $key
         ];
 
         Artisan::call('l5b:stub', $stubParams);
@@ -75,10 +73,8 @@ class BoilerplatePage extends Command {
         $stubParams = [
             'name'      => $name,
             'stub'      => $this->_getStubDir().$stub,
-            'field'     => $this->option('field'),
             'namespace' => '\Http\Requests\Backend\\'.ucfirst(camel_case($key)),
-            'model'     => ucfirst(camel_case($key)),
-            '--force'   => $this->hasOption('force') ? $this->option('force') : false,
+            'model'     => ucfirst(camel_case($key))
         ];
 
         Artisan::call('l5b:stub', $stubParams);
@@ -93,8 +89,7 @@ class BoilerplatePage extends Command {
             'controller' => ucfirst(camel_case($key))."Controller",
             'model'      => ucfirst(camel_case($key)),
             'route'      => str_plural($key),
-            'variable'   => $key,
-            '--force'    => $this->hasOption('force') ? $this->option('force') : false,
+            'variable'   => $key
         ];
 
         Artisan::call('l5b:stub', $stubParams);
@@ -106,8 +101,7 @@ class BoilerplatePage extends Command {
             'name'      => $name,
             'stub'      => $this->_getStubDir().$stub,
             'namespace' => '\..\routes\breadcrumbs\backend',
-            'route'     => str_plural($key),
-            '--force'   => $this->hasOption('force') ? $this->option('force') : false,
+            'route'     => str_plural($key)
         ];
 
         Artisan::call('l5b:stub', $stubParams);
@@ -132,11 +126,9 @@ class BoilerplatePage extends Command {
             'namespace' => '\..\resources\views\backend'.'\\'.$key,
             'label'     => str_plural($key),
             'array'     => camel_case(str_plural($key)),
-            'field'     => $this->option('field'),
             'route'     => str_plural($key),
             'variable'  => camel_case($key),
             'view'      => $key,
-            '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
         Artisan::call('l5b:stub', $stubParams);
@@ -150,12 +142,10 @@ class BoilerplatePage extends Command {
             'namespace' => '\..\resources\lang\en\\',
             'label'     => str_plural($key),
             'array'     => camel_case(str_plural($key)),
-            'field'     => $this->option('field'),
             'route'     => str_plural($key),
             'variable'  => camel_case($key),
             'view'      => $key,
             'model'     => ucfirst(camel_case($key)),
-            '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
         Artisan::call('l5b:stub', $stubParams);
