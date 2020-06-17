@@ -2,31 +2,19 @@
 
 namespace Kondratyev\LaravelComponents\Console\Commands;
 
-use Artisan;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Console\Command;
 
-class L5BPage extends Command {
-    /**
-     * The name and signature of the console command.
-     * @var string
-     */
-    protected $signature = 'l5b:page {name} {--m|migrate} {--f|field=name} {--force}';
+/**
+ * todo: needs refactoring
+ * Class BoilerplatePage
+ * @package Kondratyev\LaravelComponents\Console\Commands
+ */
+class BoilerplatePage extends Command {
 
-    /**
-     * The console command description.
-     * @var string
-     */
-    protected $description = 'Create a complete Page structure for Laravel 5 Boilerplate Backend';
+    protected $signature = 'boilerplate:page {name}';
 
-    public $doforce;
-
-    /**
-     * Create a new command instance.
-     * @return void
-     */
-    public function __construct() {
-        parent::__construct();
-    }
+    protected $description = 'Create a simple Page structure for Laravel 5 Boilerplate Backend';
 
     /**
      * Execute the console command.
@@ -63,7 +51,7 @@ class L5BPage extends Command {
     protected function controller($key, $name, $stub) {
         $stubParams = [
             'name'               => $name,
-            'stub'               => __DIR__.'/Stubs/'.$stub,
+            'stub'               => $this->_getStubDir().$stub,
             'namespace'          => '\Http\Controllers\Backend',
             'array'              => camel_case(str_plural($key)),
             'controller'         => ucfirst(camel_case($key))."Controller",
@@ -86,7 +74,7 @@ class L5BPage extends Command {
     protected function request($key, $name, $stub) {
         $stubParams = [
             'name'      => $name,
-            'stub'      => __DIR__.'/Stubs/'.$stub,
+            'stub'      => $this->_getStubDir().$stub,
             'field'     => $this->option('field'),
             'namespace' => '\Http\Requests\Backend\\'.ucfirst(camel_case($key)),
             'model'     => ucfirst(camel_case($key)),
@@ -100,7 +88,7 @@ class L5BPage extends Command {
     protected function routes($key, $name, $stub) {
         $stubParams = [
             'name'       => $name,
-            'stub'       => __DIR__.'/Stubs/'.$stub,
+            'stub'       => $this->_getStubDir().$stub,
             'namespace'  => '\..\routes\backend',
             'controller' => ucfirst(camel_case($key))."Controller",
             'model'      => ucfirst(camel_case($key)),
@@ -116,7 +104,7 @@ class L5BPage extends Command {
     protected function breadcrumbs($key, $name, $stub) {
         $stubParams = [
             'name'      => $name,
-            'stub'      => __DIR__.'/Stubs/'.$stub,
+            'stub'      => $this->_getStubDir().$stub,
             'namespace' => '\..\routes\breadcrumbs\backend',
             'route'     => str_plural($key),
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
@@ -140,7 +128,7 @@ class L5BPage extends Command {
     protected function view($key, $name, $stub) {
         $stubParams = [
             'name'      => $name.".blade",
-            'stub'      => __DIR__.'/Stubs/'.$stub,
+            'stub'      => $this->_getStubDir().$stub,
             'namespace' => '\..\resources\views\backend'.'\\'.$key,
             'label'     => str_plural($key),
             'array'     => camel_case(str_plural($key)),
@@ -158,7 +146,7 @@ class L5BPage extends Command {
     protected function label($key, $name, $stub) {
         $stubParams = [
             'name'      => 'backend_'.str_plural($name),
-            'stub'      => __DIR__.'/Stubs/'.$stub,
+            'stub'      => $this->_getStubDir().$stub,
             'namespace' => '\..\resources\lang\en\\',
             'label'     => str_plural($key),
             'array'     => camel_case(str_plural($key)),
@@ -172,5 +160,9 @@ class L5BPage extends Command {
 
         Artisan::call('l5b:stub', $stubParams);
         $this->line('Label '.$stubParams['name'].Artisan::output());
+    }
+
+    private function _getStubDir(): string {
+        return __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/';
     }
 }
