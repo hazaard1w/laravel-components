@@ -47,7 +47,7 @@ class L5BCrud extends Command {
         $this->controller($name, ucfirst(camel_case($name))."Controller", 'make-controller.stub');
 
         // Create Repository "NameRepository.php"
-        $this->repository($name, ucfirst(camel_case($name))."Repository", 'make-repository.stub');
+        $this->repository($name, ucfirst(camel_case($name))."Repository", 'repository.php');
 
         // Create Validation Request "ManageNameRequest.php"
         // Create Validation Request "StoreNameRequest.php"
@@ -209,7 +209,7 @@ class L5BCrud extends Command {
     protected function repository($key, $name, $stub) {
         $stubParams = [
             'name'       => $name,
-            'stub'       => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'       => __DIR__.'/../../Components/Stub/Stubs/boilerplate/backend/'.$stub,
             'field'      => $this->option('field'),
             'namespace'  => '\Repositories\Backend',
             'model'      => ucfirst(camel_case($key)),
