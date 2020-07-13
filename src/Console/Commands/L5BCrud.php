@@ -124,7 +124,7 @@ class L5BCrud extends Command {
     protected function model($key, $name, $stub) {
         $stubParams = [
             'name'      => $name,
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace' => '\Models',
             'attribute' => ucfirst(camel_case($key))."Attribute",
             'field'     => $this->option('field'),
@@ -139,7 +139,7 @@ class L5BCrud extends Command {
     protected function event($key, $name, $stub) {
         $stubParams = [
             'name'      => $name,
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace' => '\Events\Backend\\'.ucfirst(camel_case($key)),
             'event'     => ucfirst(camel_case($key)),
             'model'     => ucfirst(camel_case($key)),
@@ -155,7 +155,7 @@ class L5BCrud extends Command {
     protected function listener($key, $name, $stub) {
         $stubParams = [
             'name'      => $name,
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace' => '\Listeners\Backend\\'.ucfirst(camel_case($key)),
             'event'     => ucfirst(camel_case($key)),
             'field'     => $this->option('field'),
@@ -171,7 +171,7 @@ class L5BCrud extends Command {
     protected function attribute($key, $name, $stub) {
         $stubParams = [
             'name'      => $name,
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace' => '\Models\Traits\Attribute',
             'attribute' => ucfirst(camel_case($key))."Attribute",
             'route'     => str_plural($key),
@@ -186,7 +186,7 @@ class L5BCrud extends Command {
     protected function controller($key, $name, $stub) {
         $stubParams = [
             'name'               => $name,
-            'stub'               => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'               => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace'          => '\Http\Controllers\Backend',
             'array'              => camel_case(str_plural($key)),
             'controller'         => ucfirst(camel_case($key))."Controller",
@@ -209,7 +209,7 @@ class L5BCrud extends Command {
     protected function repository($key, $name, $stub) {
         $stubParams = [
             'name'       => $name,
-            'stub'       => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'       => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'field'      => $this->option('field'),
             'namespace'  => '\Repositories\Backend',
             'model'      => ucfirst(camel_case($key)),
@@ -226,7 +226,7 @@ class L5BCrud extends Command {
     protected function request($key, $name, $stub) {
         $stubParams = [
             'name'      => $name,
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'field'     => $this->option('field'),
             'namespace' => '\Http\Requests\Backend\\'.ucfirst(camel_case($key)),
             'model'     => ucfirst(camel_case($key)),
@@ -240,7 +240,7 @@ class L5BCrud extends Command {
     protected function migration($key, $name, $stub) {
         $stubParams = [
             'name'      => $name,
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'field'     => $this->option('field'),
             'namespace' => '\..\database\migrations',
             'class'     => "Create".ucfirst(str_plural(camel_case($key)))."Table",
@@ -266,7 +266,7 @@ class L5BCrud extends Command {
     protected function routes($key, $name, $stub) {
         $stubParams = [
             'name'       => $name,
-            'stub'       => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'       => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace'  => '\..\routes\backend',
             'controller' => ucfirst(camel_case($key))."Controller",
             'model'      => ucfirst(camel_case($key)),
@@ -282,7 +282,7 @@ class L5BCrud extends Command {
     protected function breadcrumbs($key, $name, $stub) {
         $stubParams = [
             'name'      => $name,
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace' => '\..\routes\breadcrumbs\backend',
             'route'     => str_plural($key),
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
@@ -306,7 +306,7 @@ class L5BCrud extends Command {
     protected function view($key, $name, $stub) {
         $stubParams = [
             'name'      => $name.".blade",
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace' => '\..\resources\views\backend'.'\\'.$key,
             'label'     => str_plural($key),
             'array'     => camel_case(str_plural($key)),
@@ -324,7 +324,7 @@ class L5BCrud extends Command {
     protected function label($key, $name, $stub) {
         $stubParams = [
             'name'      => 'backend_'.str_plural($name),
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace' => '\..\resources\lang\en\\',
             'label'     => str_plural($key),
             'array'     => camel_case(str_plural($key)),
@@ -346,7 +346,7 @@ class L5BCrud extends Command {
     protected function frontend_controller($key, $name, $stub) {
         $stubParams = [
             'name'               => $name,
-            'stub'               => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'               => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace'          => '\Http\Controllers\Frontend',
             'array'              => camel_case(str_plural($key)),
             'controller'         => ucfirst(camel_case($key))."Controller",
@@ -369,7 +369,7 @@ class L5BCrud extends Command {
     protected function frontend_event($key, $name, $stub) {
         $stubParams = [
             'name'      => $name,
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace' => '\Events\Frontend\\'.ucfirst(camel_case($key)),
             'event'     => ucfirst(camel_case($key)),
             'model'     => ucfirst(camel_case($key)),
@@ -385,7 +385,7 @@ class L5BCrud extends Command {
     protected function frontend_listener($key, $name, $stub) {
         $stubParams = [
             'name'      => $name,
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace' => '\Listeners\Frontend\\'.ucfirst(camel_case($key)),
             'event'     => ucfirst(camel_case($key)),
             'field'     => $this->option('field'),
@@ -401,7 +401,7 @@ class L5BCrud extends Command {
     protected function frontend_repository($key, $name, $stub) {
         $stubParams = [
             'name'       => $name,
-            'stub'       => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'       => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'field'      => $this->option('field'),
             'namespace'  => '\Repositories\Frontend\\'.ucfirst(camel_case($key)),
             'model'      => ucfirst(camel_case($key)),
@@ -418,7 +418,7 @@ class L5BCrud extends Command {
     protected function frontend_request($key, $name, $stub) {
         $stubParams = [
             'name'      => $name,
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'field'     => $this->option('field'),
             'namespace' => '\Http\Requests\Frontend\\'.ucfirst(camel_case($key)),
             'model'     => ucfirst(camel_case($key)),
@@ -432,7 +432,7 @@ class L5BCrud extends Command {
     protected function frontend_routes($key, $name, $stub) {
         $stubParams = [
             'name'       => str_replace('_', '', $name),
-            'stub'       => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'       => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace'  => '\..\routes\frontend',
             'controller' => ucfirst(camel_case($key))."Controller",
             'model'      => ucfirst(camel_case($key)),
@@ -448,7 +448,7 @@ class L5BCrud extends Command {
     protected function frontend_view($key, $name, $stub) {
         $stubParams = [
             'name'      => $name.".blade",
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace' => '\..\resources\views\frontend'.'\\'.$key,
             'label'     => str_plural($key),
             'array'     => camel_case(str_plural($key)),
@@ -466,7 +466,7 @@ class L5BCrud extends Command {
     protected function frontend_label($key, $name, $stub) {
         $stubParams = [
             'name'      => 'frontend_'.str_plural($name),
-            'stub'      => __DIR__.'/Components/Stub/Stubs/boilerplate/old/'.$stub,
+            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
             'namespace' => '\..\resources\lang\en\\',
             'label'     => str_plural($key),
             'array'     => camel_case(str_plural($key)),
