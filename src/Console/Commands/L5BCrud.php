@@ -132,7 +132,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Model '.$stubParams['name'].Artisan::output());
     }
 
@@ -148,7 +148,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Event '.$stubParams['name'].Artisan::output());
     }
 
@@ -164,7 +164,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Listener '.$stubParams['name'].Artisan::output());
     }
 
@@ -179,7 +179,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Attribute '.$stubParams['name'].Artisan::output());
     }
 
@@ -202,7 +202,7 @@ class L5BCrud extends Command {
             '--force'            => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Controller '.$stubParams['name'].Artisan::output());
     }
 
@@ -219,7 +219,7 @@ class L5BCrud extends Command {
             '--force'    => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Repository '.$stubParams['name'].Artisan::output());
     }
 
@@ -233,7 +233,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Request '.$stubParams['name'].Artisan::output());
     }
 
@@ -250,7 +250,7 @@ class L5BCrud extends Command {
 
         // If no migration with name "*create_names_table.php" exists then create it
         if (!glob(database_path()."/migrations/*create_".str_plural($key)."_table.php")) {
-            Artisan::call('l5b:stub', $stubParams);
+            Artisan::call('boilerplate:stub', $stubParams);
             $this->line('Migration '.$stubParams['name'].Artisan::output());
         } else {
             $this->line('A migration file for the table '.str_plural($key)." already exists!\n");
@@ -275,7 +275,7 @@ class L5BCrud extends Command {
             '--force'    => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Routes '.$stubParams['name'].Artisan::output());
     }
 
@@ -288,7 +288,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Breadcrumbs '.$stubParams['name'].Artisan::output());
 
         // Include breadcrumb file in backend.php
@@ -317,7 +317,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('View '.$stubParams['name'].Artisan::output());
     }
 
@@ -336,7 +336,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Label '.$stubParams['name'].Artisan::output());
     }
 
@@ -362,7 +362,7 @@ class L5BCrud extends Command {
             '--force'            => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Controller '.$stubParams['name'].Artisan::output());
     }
 
@@ -378,7 +378,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Event '.$stubParams['name'].Artisan::output());
     }
 
@@ -394,7 +394,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Listener '.$stubParams['name'].Artisan::output());
     }
 
@@ -411,7 +411,7 @@ class L5BCrud extends Command {
             '--force'    => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Repository '.$stubParams['name'].Artisan::output());
     }
 
@@ -425,7 +425,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Request '.$stubParams['name'].Artisan::output());
     }
 
@@ -441,7 +441,7 @@ class L5BCrud extends Command {
             '--force'    => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Routes '.$stubParams['name'].Artisan::output());
     }
 
@@ -459,7 +459,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('View '.$stubParams['name'].Artisan::output());
     }
 
@@ -478,7 +478,7 @@ class L5BCrud extends Command {
             '--force'   => $this->hasOption('force') ? $this->option('force') : false,
         ];
 
-        Artisan::call('l5b:stub', $stubParams);
+        Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Label '.$stubParams['name'].Artisan::output());
     }
 }
