@@ -65,10 +65,7 @@ class L5BCrud extends Command {
 
         // Create Listener "Listeners/Backend/Example/ExampleEventListener.php"
         $this->listener($name, ucfirst(camel_case($name))."EventListener", 'make-listener.stub');
-
-        // Create Migration "YYYY_MM_DD_HHMMSS_create_names_table.php"
-        $this->migration($name, date('Y_m_d_His_')."create_".str_plural($name)."_table", 'make-migration.stub');
-
+        
         // Create Routes "names.php"
         $this->routes($name, str_plural($name), 'make-routes.stub');
 
@@ -235,32 +232,6 @@ class L5BCrud extends Command {
 
         Artisan::call('boilerplate:stub', $stubParams);
         $this->line('Request '.$stubParams['name'].Artisan::output());
-    }
-
-    protected function migration($key, $name, $stub) {
-        $stubParams = [
-            'name'      => $name,
-            'stub'      => __DIR__.'/../../Components/Stub/Stubs/boilerplate/old/'.$stub,
-            'field'     => $this->option('field'),
-            'namespace' => '\..\database\migrations',
-            'class'     => "Create".ucfirst(str_plural(camel_case($key)))."Table",
-            'table'     => str_plural($key),
-            '--force'   => $this->hasOption('force') ? $this->option('force') : false,
-        ];
-
-        // If no migration with name "*create_names_table.php" exists then create it
-        if (!glob(database_path()."/migrations/*create_".str_plural($key)."_table.php")) {
-            Artisan::call('boilerplate:stub', $stubParams);
-            $this->line('Migration '.$stubParams['name'].Artisan::output());
-        } else {
-            $this->line('A migration file for the table '.str_plural($key)." already exists!\n");
-        }
-
-        // If option -m|--migrate is true then migrate the table
-        if ($this->option('migrate')) {
-            Artisan::call('migrate');
-            $this->line('Migrating table '.$stubParams['name']."\n");
-        }
     }
 
     protected function routes($key, $name, $stub) {
